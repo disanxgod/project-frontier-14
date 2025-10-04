@@ -1664,3 +1664,14 @@ Entries:
   id: 125
   time: '2025-10-04T13:20:00.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/269
+- author: LeptonComm
+  changes:
+    - type: Tweak
+      message: Авантюрист переименован в Исследователя
+    - type: Tweak
+      message: >-
+        Переработаны часы, зарплаты, названия, описания всех ролей Нордфолла,
+        кроме ботаника, ученого и ОТС
+  id: 126
+  time: '2025-10-04T13:32:32.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/275
