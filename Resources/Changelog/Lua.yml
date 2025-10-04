@@ -1644,3 +1644,16 @@ Entries:
   id: 123
   time: '2025-10-04T11:37:57.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/258
+- author: HacksLua
+  changes:
+    - type: Add
+      message: Добавлено веселье!
+    - type: Remove
+      message: Удалено веселье!
+    - type: Tweak
+      message: Изменено веселье!
+    - type: Fix
+      message: Исправлено веселье!
+  id: 124
+  time: '2025-10-04T12:10:41.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/266
