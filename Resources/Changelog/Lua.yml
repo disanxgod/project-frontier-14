@@ -1644,3 +1644,12 @@ Entries:
   id: 123
   time: '2025-10-04T11:37:57.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/258
+- author: fox76055
+  changes:
+    - type: Tweak
+      message: >-
+        LaserBeam: теперь имеет новое название Lancelot. Также изменена
+        компоновка внутри.
+  id: 124
+  time: '2025-10-04T12:13:37.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/267
