@@ -1607,3 +1607,13 @@ Entries:
   id: 120
   time: '2025-10-04T10:28:39.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/249
+- author: LeptonComm
+  changes:
+    - type: Remove
+      message: >-
+        Капитальный ремап Ксено: Изменено бронирование, расположение пушек и
+        двигателей, комбинация курсового вооружения, компоновка, наполнение,
+        декор (feat. Covral)
+  id: 121
+  time: '2025-10-04T10:41:51.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/250
