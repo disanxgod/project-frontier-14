@@ -2,9 +2,11 @@
 // Copyright (c) 2025 LuaWorld
 // See AGPLv3.txt for details.
 
-namespace Content.Server._Lua.LuaTech;
+using Robust.Shared.GameStates;
 
-[RegisterComponent]
+namespace Content.Shared._Lua.LuaTech;
+
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LuaTechComponent : Component
 {
 }
