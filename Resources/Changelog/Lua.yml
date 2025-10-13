@@ -1782,3 +1782,13 @@ Entries:
   id: 131
   time: '2025-10-13T09:11:46.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/281
+- author: LeptonComm
+  changes:
+    - type: Tweak
+      message: >-
+        Были увеличены точность и скорострельность базовых ПП и винтовок;
+        Увеличен урон калибров .20 .30 и .35; Повышена стоимость ВТ в аплинке СБ
+        с 4 до 10 фк
+  id: 132
+  time: '2025-10-13T09:17:58.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/286
