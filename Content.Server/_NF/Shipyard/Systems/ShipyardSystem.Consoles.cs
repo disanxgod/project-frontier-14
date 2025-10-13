@@ -526,22 +526,42 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
-        if (_station.GetOwningStation(uid) is not { Valid: true } stationUid)
+        var isLuaTech = HasComp<LuaTechComponent>(uid);
+        bool hasStation = false;
+        EntityUid stationUid = default;
+        EntityUid targetGridForLuaTech = default;
+        if (!isLuaTech)
         {
-            ConsolePopup(player, Loc.GetString("shipyard-console-invalid-station"));
-            PlayDenySound(player, uid, component);
-            return;
+            if (_station.GetOwningStation(uid) is not { Valid: true } owningStation)
+            {
+                ConsolePopup(player, Loc.GetString("shipyard-console-invalid-station"));
+                PlayDenySound(player, uid, component); return;
+            }
+            stationUid = owningStation;
+            hasStation = true;
         }
-
-        if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStation
-            && TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
-            && keyStorage.Key != null
-            && keyStorage.Key.Value.OriginStation == shuttleStation
-            && _records.TryGetRecord<GeneralStationRecord>(keyStorage.Key.Value, out var record))
+        else
         {
-            //_records.RemoveRecord(keyStorage.Key.Value);
-            _records.AddRecordEntry(stationUid, record);
-            _records.Synchronize(stationUid);
+            var xform = Transform(uid);
+            if (xform.GridUid is not { Valid: true } gridUid)
+            {
+                ConsolePopup(player, Loc.GetString("shipyard-console-invalid-station"));
+                PlayDenySound(player, uid, component); return;
+            }
+            targetGridForLuaTech = gridUid;
+        }
+        if (hasStation)
+        {
+            if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStation
+                && TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
+                && keyStorage.Key != null
+                && keyStorage.Key.Value.OriginStation == shuttleStation
+                && _records.TryGetRecord<GeneralStationRecord>(keyStorage.Key.Value, out var record))
+            {
+                //_records.RemoveRecord(keyStorage.Key.Value);
+                _records.AddRecordEntry(stationUid, record);
+                _records.Synchronize(stationUid);
+            }
         }
 
         var shuttleName = ToPrettyString(shuttleUid); // Grab the name before it gets 1984'd
@@ -558,7 +578,10 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
-        var saleResult = TrySellShuttle(stationUid, shuttleUid, uid, out var bill);
+        ShipyardSaleResult saleResult;
+        int bill;
+        if (isLuaTech) saleResult = TrySellShuttleToGrid(targetGridForLuaTech, shuttleUid, uid, out bill);
+        else saleResult = TrySellShuttle(stationUid, shuttleUid, uid, out bill);
         if (saleResult.Error != ShipyardSaleError.Success)
         {
             switch (saleResult.Error)

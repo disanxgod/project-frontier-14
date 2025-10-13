@@ -291,6 +291,50 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         result.Error = ShipyardSaleError.Success;
         return result;
     }
+    public ShipyardSaleResult TrySellShuttleToGrid(EntityUid targetGridUid, EntityUid shuttleUid, EntityUid consoleUid, out int bill)
+    {
+        ShipyardSaleResult result = new ShipyardSaleResult(); bill = 0;
+        if (!HasComp<ShuttleComponent>(shuttleUid) || !TryComp(shuttleUid, out TransformComponent? xform))
+        { result.Error = ShipyardSaleError.InvalidShip; return result; }
+        if (!TryComp(targetGridUid, out TransformComponent? _))
+        { result.Error = ShipyardSaleError.InvalidShip; return result; }
+        var gridDocks = _docking.GetDocks(targetGridUid);
+        var shuttleDocks = _docking.GetDocks(shuttleUid);
+        var isDocked = false;
+        foreach (var shuttleDock in shuttleDocks)
+        {
+            foreach (var gridDock in gridDocks)
+            {
+                if (shuttleDock.Comp.DockedWith == gridDock.Owner)
+                { isDocked = true; break; }
+            }
+            if (isDocked) break;
+        }
+        if (!isDocked)
+        {
+            _sawmill.Warning($"shuttle is not docked to the specified grid");
+            result.Error = ShipyardSaleError.Undocked; return result;
+        }
+        var mobQuery = GetEntityQuery<MobStateComponent>();
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var charName = FoundOrganics(shuttleUid, mobQuery, xformQuery);
+        if (charName is not null)
+        {
+            _sawmill.Warning($"organics on board");
+            result.Error = ShipyardSaleError.OrganicsAboard;
+            result.OrganicName = charName; return result;
+        }
+        if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStationUid)
+        { _station.DeleteStation(shuttleStationUid); }
+        if (TryComp<ShipyardConsoleComponent>(consoleUid, out var comp))
+        { CleanGrid(shuttleUid, consoleUid); }
+
+        bill = (int)_pricing.AppraiseGrid(shuttleUid, LacksPreserveOnSaleComp);
+        QueueDel(shuttleUid);
+        _sawmill.Info($"Sold shuttle {shuttleUid} for {bill}");
+        _shuttleRecordsSystem.RefreshStateForAll(true);
+        result.Error = ShipyardSaleError.Success; return result;
+    }
 
     private void CleanGrid(EntityUid grid, EntityUid destination)
     {
