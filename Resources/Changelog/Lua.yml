@@ -1767,3 +1767,18 @@ Entries:
   id: 130
   time: '2025-10-13T08:57:54.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/280
+- author: LeptonComm
+  changes:
+    - type: Tweak
+      message: На шаттлах Восход и Пурга один из скафандров М93С заменен на М73
+    - type: Tweak
+      message: >-
+        На шаттле фрактур под пушками теперь ГМ-пол, также добавлен сейф с двумя
+        пистолетами N1984
+    - type: Fix
+      message: На АСБ починены доступы в мусорку и кабинет детектива
+    - type: Fix
+      message: На Меркурии починен атмос
+  id: 131
+  time: '2025-10-13T09:11:46.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/281
