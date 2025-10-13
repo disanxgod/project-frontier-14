@@ -1675,3 +1675,60 @@ Entries:
   id: 126
   time: '2025-10-04T13:32:32.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/275
+- author: HacksLua
+  changes:
+    - type: Add
+      message: Добавлено новое событие, Верфь Lua Technologies
+    - type: Tweak
+      message: В игру возвращен ремапнутый Аркалис
+    - type: Tweak
+      message: >-
+        Кайриис, Айхива, Аркалис теперь доступны только на верфи события Lua
+        Tech.
+    - type: Tweak
+      message: Айхива покупается только с уровнем доступа Наёмник
+    - type: Add
+      message: Добавлены астролитовые стены/окна и материалы эксклюзив LuaTech
+    - type: Tweak
+      message: Шлюзы LuaTech могут быть окрашены в любой hex цвет
+    - type: Add
+      message: Добавлен магнито-гравитационный двигатель LuaTech
+    - type: Add
+      message: Добавлен голошлюз LuaTech
+    - type: Add
+      message: >-
+        Добавлено 2 ДАМа Синдикат и LuaTech, на данный момент ничем не
+        отличаются от обычного ДАМа кроме текстур
+    - type: Fix
+      message: Сингулярность и теслу теперь вновь можно заспавнить
+    - type: Add
+      message: Добавлен пурспейс привод LuaTech
+    - type: Fix
+      message: Исправлены консоли торговых терминалов
+    - type: Fix
+      message: Лазеры теперь нормально отображаются на радаре
+    - type: Add
+      message: Добавлена голографическая консоль верфи и управления шаттлом LuaTech
+    - type: Tweak
+      message: >-
+        Блюспейс события сектора фронтир и поля астероидов объединены в одну
+        систему управления событиями (beta)
+    - type: Tweak
+      message: >-
+        Переработаны сектора, их логика смещена в прототипы а так же единную
+        систему управления (beta)
+    - type: Fix
+      message: 'ИИ теперь может одновременно управлять шаттлом и вооружением '
+    - type: Fix
+      message: Исправлены диагональные стены, теперь они вновь прозрачные meh
+    - type: Add
+      message: Добавлена система самоуничтожения корабля (пока только аркалис)(beta)
+    - type: Tweak
+      message: библия теперь вас не спасет
+    - type: Tweak
+      message: Теперь нельзя создать армию с помощью амулетов
+    - type: Tweak
+      message: Пушки монолита вновь требуют НВ кабель
+  id: 127
+  time: '2025-10-13T08:31:38.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/290
