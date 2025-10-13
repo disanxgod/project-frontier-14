@@ -5,13 +5,13 @@
 
 - type: vessel
   parent: BaseVessel
-  id: GFIlmus
-  name: GF-Ilmus
-  description: Средний шаттл для утилизации и экспедиций. Дополнительно оснащен кухней и медицинским отсеком
-  price: 65000
-  category: Medium
+  id: GFAsket
+  name: GF-Asket
+  description: Большой корабль для исследования глубокого космоса и экспедиций. 
+  price: 125000
+  category: Large
   group: Expedition
-  shuttlePath: /Maps/_Lua/Shuttles/Expedition/ilmus.yml
+  shuttlePath: /Maps/_Lua/Shuttles/Expedition/asket.yml
   class:
   - Expedition
   - Civilian
@@ -23,16 +23,16 @@
     - type: NanotrasenFtl
 
 - type: gameMap
-  id: GFIlmus
-  mapName: 'GF-Ilmus'
-  mapPath: /Maps/_Lua/Shuttles/Expedition/ilmus.yml
+  id: GFAsket
+  mapName: 'GF-Asket'
+  mapPath: /Maps/_Lua/Shuttles/Expedition/asket.yml
   minPlayers: 0
   stations:
-    GFIlmus:
+    GFAsket:
       stationProto: StandardFrontierExpeditionVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'GF Ilmus {1}'
+          mapNameTemplate: 'GF Asket {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
