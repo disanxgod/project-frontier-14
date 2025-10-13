@@ -1792,3 +1792,10 @@ Entries:
   id: 132
   time: '2025-10-13T09:17:58.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/286
+- author: LeptonComm
+  changes:
+    - type: Add
+      message: Капитальный экспедиционный шаттл Asket
+  id: 133
+  time: '2025-10-13T09:26:03.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/255
