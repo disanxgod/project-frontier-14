@@ -3,7 +3,10 @@
 // See AGPLv3.txt for details.
 
 using Content.Server._NF.GameRule;
+using Content.Server._NF.GameTicking.Events;
 using Content.Server._NF.Station.Systems;
+using Content.Server._NF.SectorServices;
+using Content.Server._NF.Smuggling.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Maps;
@@ -125,6 +128,16 @@ public sealed class SectorSystem : EntitySystem
         var stationGrid = _ticker.MergeGameMap(_protos.Index<GameMapPrototype>(cfg.Station), mapId, opts).FirstOrNull(HasComp<BecomesStationComponent>)!.Value;
         _meta.SetEntityName(mapUid, cfg.Name);
         EnsureComp<SectorAtmosSupportComponent>(mapUid);
+        if (stationGrid.IsValid())
+        {
+            EnsureComp<StationSectorServiceHostComponent>(stationGrid);
+            if (cfg.DeadDropEnabled)
+            {
+                EnsureComp<StationDeadDropComponent>(stationGrid);
+                var deadDropComp = Comp<StationDeadDropComponent>(stationGrid);
+                deadDropComp.MaxDeadDrops = cfg.DeadDropCount;
+            }
+        }
         if (cfg.ParallaxPool.Length > 0)
         {
             var parallax = EnsureComp<ParallaxComponent>(mapUid);
@@ -142,6 +155,7 @@ public sealed class SectorSystem : EntitySystem
         if (cfg.AddFtlDestination)
         { if (_shuttle.TryAddFTLDestination(mapId, true, false, false, out var ftl)) { ApplyFtlWhitelist((ftl.Owner, ftl), cfg.FtlWhitelist); } }
         _map.InitializeMap(mapUid); Log.Info($"[SectorSystem] EnsureSector done id='{configId}' map='{mapId}'");
+        RaiseLocalEvent(new StationsGeneratedEvent());
     }
 
     private void ApplyFtlWhitelist(Entity<FTLDestinationComponent?> ent, string[]? components)

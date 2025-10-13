@@ -10,6 +10,8 @@
   addFtlDestination: true # Включаем возможность перемещаться на наш сектор
   ftlWhitelist: [ NanotrasenFtl, MercenaryFtl, PirateFtl, TypanFtl ] # Указываем белые списки кому дозволено коснуться нашего сектора, данные компоненты должны быть указаны в прототипе корабля vessel
   parallaxPool: [ AspidParallax, BagelStation, CoreStation, OriginStation, TrainStation, KettleStation, Sky, Asteroids, Default ] # задний фон сектора, выбирается случайным образом
+  deadDropEnabled: true # Включаем систему DeadDrop для сектора
+  deadDropCount: 8 # Максимальное количество DeadDrop на сектор
   poiGroups: # Ниже перечисляем точки интереса что будут раундстартом в секторе, их id и настройку можно получить из PointOfInterest в папке NF прототипов (либо Lua)
   - group: AsteroidRequired # Группа рекомендаций сектора
     count: 0 # если 0 то спавнится каждый по одному
@@ -30,6 +32,7 @@
   addFtlDestination: true
   ftlWhitelist: [ TypanFtl ]
   parallaxPool: [ OriginStation, NordFoll ]
+  deadDropEnabled: false
   poiGroups:
   - group: TypanCargoDepot
     count: 1
@@ -44,6 +47,8 @@
   addFtlDestination: true
   ftlWhitelist: [ PirateFtl ]
   parallaxPool: [ CoreStation, Tortuga ]
+  deadDropEnabled: true
+  deadDropCount: 2
 
 - type: sectorSystemPrototype
   id: MercenarySector
@@ -54,6 +59,8 @@
   addFtlDestination: true
   ftlWhitelist: [ MercenaryFtl, TypanFtl ]
   parallaxPool: [ Sky ]
+  deadDropEnabled: true
+  deadDropCount: 1
 
 - type: sectorSystemPrototype
   id: ShipVsShipRed

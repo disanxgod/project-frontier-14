@@ -41,6 +41,12 @@ public sealed partial class SectorSystemPrototype : IPrototype
 
     [DataField("poiGroups")]
     public SectorPOIGroup[] POIGroups = Array.Empty<SectorPOIGroup>();
+
+    [DataField]
+    public bool DeadDropEnabled = true;
+
+    [DataField]
+    public int DeadDropCount = 2;
 }
 
 [DataDefinition]
