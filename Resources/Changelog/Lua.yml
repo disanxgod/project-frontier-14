@@ -1799,3 +1799,12 @@ Entries:
   id: 133
   time: '2025-10-13T09:26:03.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/255
+- author: fox76055
+  changes:
+    - type: Tweak
+      message: >-
+        Laqeramaline: изменена внутренняя комплектация, изменено вооружение на 2
+        M381 Charon, 1 Cyrexa 220mm, 2 AK570, 4 миномёта 105mm
+  id: 134
+  time: '2025-10-15T13:54:18.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/288
