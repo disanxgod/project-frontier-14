@@ -1808,3 +1808,12 @@ Entries:
   id: 134
   time: '2025-10-15T13:54:18.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/288
+- author: fox76055
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён Legionnaire-Tov: Название -> Legionnaire-EMP, Вооружение: 2 -
+        150mm, 2 - 220 (EMP), Внутренняя комплектация (отделы сохранены)
+  id: 135
+  time: '2025-10-15T13:56:13.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/291
