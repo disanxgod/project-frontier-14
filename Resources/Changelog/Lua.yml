@@ -1826,3 +1826,14 @@ Entries:
   id: 136
   time: '2025-10-15T13:58:26.0000000+00:00'
   url: https://github.com/Lua-Frontier/sector-frontier-14/pull/292
+- author: BrennNight
+  changes:
+    - type: Add
+      message: Добавлен 1 небольшой параллакс!
+    - type: Tweak
+      message: >-
+        Добавлена оригинальная локализация практически всех коктейлей и их
+        вкусов by RedsTheFlame. Файнали!
+  id: 137
+  time: '2025-10-15T14:25:22.0000000+00:00'
+  url: https://github.com/Lua-Frontier/sector-frontier-14/pull/293
